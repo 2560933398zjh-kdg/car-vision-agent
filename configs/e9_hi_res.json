@@ -1,0 +1,22 @@
+{
+  "name": "e9_hi_res",
+  "arch": "resnet18",
+  "pretrained": true,
+  "input_size": 320,
+  "resize_size": 366,
+  "epochs": 10,
+  "batch_size": 32,
+  "eval_batch_size": 64,
+  "optimizer": "adamw",
+  "lr": 0.0007,
+  "weight_decay": 0.0001,
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "augmentation": "basic",
+  "num_workers": 4,
+  "seed": 20260910,
+  "freeze_backbone_epochs": 1,
+  "amp": true,
+  "mid_checkpoint_every": 2,
+  "limit_per_class": null
+}

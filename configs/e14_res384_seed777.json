@@ -1,0 +1,22 @@
+{
+  "name": "e14_res384_seed777",
+  "arch": "resnet18",
+  "pretrained": true,
+  "input_size": 384,
+  "resize_size": 440,
+  "epochs": 14,
+  "batch_size": 20,
+  "eval_batch_size": 32,
+  "optimizer": "adamw",
+  "lr": 0.0005,
+  "weight_decay": 0.0001,
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "augmentation": "basic",
+  "num_workers": 4,
+  "seed": 777,
+  "freeze_backbone_epochs": 1,
+  "amp": true,
+  "mid_checkpoint_every": 2,
+  "limit_per_class": null
+}

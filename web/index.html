@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>识车笔记 · 视觉智能体</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-name">识车笔记</span>
+    <span class="brand-sub">自训练视觉模型 + DeepSeek 智能体</span>
+  </div>
+  <div class="topbar-right">
+    <span class="chip" id="session-chip">会话 —</span>
+    <span class="chip" id="health-chip">检查中…</span>
+  </div>
+</header>
+
+<div id="alert-bar" class="alert-bar hidden"></div>
+
+<main class="layout">
+
+  <section class="col-main">
+
+    <div class="card">
+      <div class="card-head">
+        <h2>1 · 上传车照</h2>
+        <span class="muted" id="upload-hint">JPG / PNG / WEBP，单张不超过 10MB</span>
+      </div>
+      <div class="drop-zone" id="drop-zone">
+        <input type="file" id="file-input" accept="image/*" hidden>
+        <div class="drop-inner">
+          <div class="thumb" id="preview"></div>
+          <div class="drop-text">
+            <p class="drop-title" id="drop-title">点击选择，或把图片拖到这里</p>
+            <p class="muted" id="preview-name">支持键盘操作：聚焦后按回车选择文件</p>
+          </div>
+          <button class="btn" id="pick-btn" type="button">选择图片</button>
+        </div>
+      </div>
+      <div class="row-gap" id="quick-tasks">
+        <button class="btn ghost" data-task="这是什么车？介绍一下，然后加入我的识车笔记。">识别并收藏</button>
+        <button class="btn ghost" data-task="这是什么车？帮我记下来，备注：路上看到的。">识别并备注</button>
+        <button class="btn ghost" data-task="我现在一共收藏了几辆车？">查看我的笔记</button>
+        <button class="btn ghost" data-task="我收藏的跑车有哪些？">按类型检索</button>
+      </div>
+    </div>
+
+    <div class="card grow">
+      <div class="card-head">
+        <h2>2 · 对话</h2>
+        <button class="btn ghost small" id="reset-btn" type="button">清空上下文</button>
+      </div>
+      <div class="chat" id="messages">
+        <div class="empty" id="chat-empty">
+          <p>上传一张车照，然后用自然语言告诉我要做什么。</p>
+          <p class="muted">例如：“识别这张图里的车型，介绍一下，然后加入我的识车笔记。”</p>
+        </div>
+      </div>
+      <form class="composer" id="composer">
+        <textarea id="chat-input" rows="2" placeholder="输入任务，回车发送，Shift+回车换行"></textarea>
+        <button class="btn primary" id="send-btn" type="submit">发送</button>
+      </form>
+    </div>
+
+  </section>
+
+  <aside class="col-side">
+
+    <div class="card">
+      <div class="card-head"><h2>识车笔记</h2></div>
+      <div class="metrics" id="stats-cards"></div>
+      <div class="row-gap">
+        <input type="text" id="record-search" placeholder="按车型、品牌或备注检索">
+        <button class="btn small" id="search-btn" type="button">检索</button>
+      </div>
+      <div class="row-gap">
+        <button class="btn ghost small" id="export-csv" type="button">导出 CSV</button>
+        <button class="btn ghost small" id="export-json" type="button">导出 JSON</button>
+      </div>
+      <ul class="records" id="records-list"></ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>工具调用记录</h2>
+        <span class="muted" id="log-count">0 次</span>
+      </div>
+      <p class="muted small-text">点击任意一条展开参数与原始返回（任务书要求的调用记录）。</p>
+      <ul class="logs" id="tool-logs"></ul>
+    </div>
+
+  </aside>
+
+</main>
+
+<script src="/app.js"></script>
+<script src="/records.js"></script>
+<script src="/logs.js"></script>
+</body>
+</html>

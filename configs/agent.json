@@ -1,0 +1,25 @@
+{
+  "model": "deepseek-v4-flash",
+  "api_url": "https://api.deepseek.com/chat/completions",
+  "api_key_env": "DEEPSEEK_API_KEY",
+  "temperature": 0.2,
+  "max_tokens": 2048,
+  "max_rounds": 8,
+  "max_tool_calls": 12,
+  "request_timeout": [10, 90],
+  "vision": {
+    "checkpoint": "models/best.pt",
+    "top_k": 3,
+    "confidence_threshold": 0.0
+  },
+  "car_encyclopedia": {
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model": "qwen-plus",
+    "enable_search": true,
+    "timeout": [10, 60]
+  },
+  "storage": {
+    "db_path": "data/app.db"
+  }
+}

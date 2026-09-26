@@ -1,0 +1,23 @@
+{
+  "name": "e7_weighted_ft",
+  "arch": "resnet18",
+  "pretrained": false,
+  "init_checkpoint": "models/e5_broad_unknown_best.pt",
+  "known_class_weight": 3.0,
+  "epochs": 3,
+  "batch_size": 64,
+  "eval_batch_size": 128,
+  "optimizer": "adamw",
+  "lr": 0.0002,
+  "weight_decay": 0.0001,
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "augmentation": "basic",
+  "input_size": 224,
+  "num_workers": 4,
+  "seed": 20260910,
+  "freeze_backbone_epochs": 0,
+  "amp": true,
+  "mid_checkpoint_every": 1,
+  "limit_per_class": null
+}

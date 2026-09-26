@@ -1,0 +1,22 @@
+{
+  "name": "e10_resnet34_basic",
+  "arch": "resnet34",
+  "pretrained": true,
+  "input_size": 224,
+  "resize_size": 256,
+  "epochs": 10,
+  "batch_size": 48,
+  "eval_batch_size": 128,
+  "optimizer": "adamw",
+  "lr": 0.0007,
+  "weight_decay": 0.0001,
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "augmentation": "basic",
+  "num_workers": 4,
+  "seed": 20260910,
+  "freeze_backbone_epochs": 1,
+  "amp": true,
+  "mid_checkpoint_every": 2,
+  "limit_per_class": null
+}

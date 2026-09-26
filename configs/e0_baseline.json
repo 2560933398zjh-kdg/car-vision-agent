@@ -1,0 +1,21 @@
+{
+  "name": "e0_baseline",
+  "arch": "resnet18",
+  "pretrained": true,
+  "epochs": 8,
+  "batch_size": 64,
+  "eval_batch_size": 128,
+  "optimizer": "adamw",
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "scheduler": "none",
+  "label_smoothing": 0.0,
+  "augmentation": "none",
+  "input_size": 224,
+  "num_workers": 4,
+  "seed": 20260910,
+  "freeze_backbone_epochs": 0,
+  "amp": true,
+  "mid_checkpoint_every": 2,
+  "limit_per_class": null
+}
